@@ -1,6 +1,6 @@
 # 启动FastAPI服务，提供聊天机器人服务
 import uvicorn
-
+from dotenv import dotenv_values
 from fastapi import FastAPI
 from pydantic import BaseModel
 from starlette.responses import StreamingResponse
@@ -10,9 +10,10 @@ from server.llm.ChatZhipuAI import ChatZhipuAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
+env = dotenv_values(".env")
 llm = ChatZhipuAI(
     temperature=0.1,
-    api_key="06cd4940767ac97f37f42340ededc7cb.NByo90Rv4FAieZLD",
+    api_key=env["ZHIPU_API_KEY"],
     model_name="glm-4",
     streaming=True
 )

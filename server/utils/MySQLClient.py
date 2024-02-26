@@ -1,7 +1,7 @@
 import pymysql
 from pymysql.cursors import DictCursor
 from pymysql.err import OperationalError
-from DBUtils.PooledDB import PooledDB
+from dbutils.pooled_db import PooledDB
 
 # MySQLClient类用于与MySQL数据库进行交互
 class MySQLClient:
@@ -13,12 +13,13 @@ class MySQLClient:
         self.db = db
         self.pool = PooledDB(
             pymysql,
-            pool_size=pool_size,
-            host=host,
-            port=port,
-            user=user,
-            password=password,
-            db=db,
+            mincached=pool_size,  # 这里可能需要根据pool_size调整为合适的值，mincached表示初始时在连接池中创建的空闲连接数
+            maxcached=pool_size,  # 如果希望pool_size表示最大连接数，这里应保持一致
+            host=self.host,
+            port=self.port,
+            user=self.user,
+            password=self.password,
+            db=self.db,
             cursorclass=DictCursor
         )
 

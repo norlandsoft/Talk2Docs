@@ -37,4 +37,13 @@ docker run -d -it -p 3306:3306 \
 ```
 
 ## 运行环境设置
-- 将.env-template文件更名为.env, 修改文件中设置内容
+- 将.env-template文件更名为.env
+- 设置数据库连接及语言模型API KEY
+
+## 启动服务
+```shell
+# 启动服务
+python web_start.py
+# 启动前端
+cd frontend && npm start
+```

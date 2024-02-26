@@ -10,6 +10,8 @@ from pydantic import BaseModel
 from zhipuai import ZhipuAI
 from starlette.responses import StreamingResponse
 
+from server import ChatService
+
 app = FastAPI()
 
 # 从.env中读取环境变量
@@ -42,4 +44,5 @@ async def completions(chat: ChatMessage):
     return StreamingResponse(send_message(chat.content), media_type="text/event-stream")
 
 if __name__ == "__main__":
+    ChatService.init_db()
     uvicorn.run(app, host="0.0.0.0", port=8080)

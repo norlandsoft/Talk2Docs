@@ -11,7 +11,11 @@ redis
 python-dotenv
 
 # db
+DBUtils
 pymysql
 
 # llm api
 zhipuai
+
+# 通用工具
+cryptography

@@ -1,12 +1,17 @@
 from dotenv import dotenv_values
+from server.utils.MySQLClient import MySQLClient
 
 # 获取环境变量
 mysql_env = dotenv_values(".env")
-# mysql_env['mysql_user']
 
-# 启动文档对话服务，提供数据库等服务
-class ChatService:
-  def init(self):
-    # 初始化MySQL数据库连接
-    
+def init_db():
+    mysql = MySQLClient(
+      host=mysql_env['mysql_host'],
+      port=int(mysql_env['mysql_port']),
+      user=mysql_env['mysql_user'],
+      password=mysql_env['mysql_password'],
+      db=mysql_env['mysql_db']
+    )
+
+    mysql.execute_query('select 1;')
     pass

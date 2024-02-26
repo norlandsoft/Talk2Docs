@@ -10,5 +10,8 @@ kafka_python
 redis
 python-dotenv
 
+# db
+pymysql
+
 # llm api
 zhipuai

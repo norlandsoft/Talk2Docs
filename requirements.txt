@@ -1,0 +1,14 @@
+# web
+fastapi
+uvicorn
+requests
+bs4
+beautifulsoup4
+flask
+pydantic
+kafka_python
+redis
+python-dotenv
+
+# llm api
+zhipuai

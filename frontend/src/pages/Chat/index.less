@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+
+  .task {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #e8e8e8;
+    overflow: hidden;
+
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      font-family:'Courier New', Courier, monospace;
+      font-size: 26px;
+      font-weight: 600;
+      text-shadow: 0 0 1px #79c1e4;
+      user-select: none;
+    }
+
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 40px;
+      padding: 0 16px;
+      border-top: 1px solid #e8e8e8;
+
+      .options {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .toggle {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .work {
+    display: flex;
+  }
+}

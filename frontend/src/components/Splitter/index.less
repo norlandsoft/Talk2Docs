@@ -1,0 +1,59 @@
+.Resizer {
+  background: #ddd;
+  z-index: 1;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+}
+
+.Resizer.horizontal {
+  height: 15px;
+  margin: -7px 0;
+  border-top: 7px solid rgba(255, 255, 255, 0);
+  border-bottom: 7px solid rgba(255, 255, 255, 0);
+  cursor: row-resize;
+  width: 100%;
+}
+
+.Resizer.horizontal:hover {
+  background: #81acf0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+
+  border-top: 6px solid rgba(255, 255, 255, 0);
+}
+
+.Resizer.vertical {
+  width: 15px;
+  margin: 0 -7px;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  cursor: col-resize;
+}
+
+.Resizer.vertical:hover {
+  background: #81acf0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+
+  border-left: 6px solid transparent;
+}
+
+.Resizer.disabled {
+  //cursor: not-allowed;
+  cursor: default;
+}
+.Resizer.disabled:hover {
+  border-color: transparent;
+}

@@ -1,0 +1,35 @@
+.container {
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: var(--color-base);
+    border-radius: 5px;
+    user-select: none;
+    cursor: pointer;
+    height: 36px;
+    margin: 0 16px;
+    gap: 8px;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    margin-top: 12px;
+
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+  }
+}

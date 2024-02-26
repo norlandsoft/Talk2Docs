@@ -1,8 +1,11 @@
 from dotenv import dotenv_values
-from server.utils.MySQLClient import MySQLClient
+from server.db.MySQLClient import MySQLClient
 
 # 获取环境变量
 mysql_env = dotenv_values(".env")
+
+def init_platform():
+    pass
 
 def init_db():
     mysql = MySQLClient(

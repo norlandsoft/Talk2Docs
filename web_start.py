@@ -42,6 +42,6 @@ async def completions(chat: ChatMessage):
     return StreamingResponse(send_message(chat.content), media_type="text/event-stream")
 
 if __name__ == "__main__":
-    # 初始化数据库连接
-    ChatService.init_db()
+    # 初始化平台服务
+    ChatService.init_platform()
     uvicorn.run(app, host="0.0.0.0", port=8080)

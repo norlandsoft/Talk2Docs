@@ -15,6 +15,9 @@ DBUtils
 pymysql
 
 # llm api
+langchain
+langchain-community
+langchain-core
 zhipuai
 
 # 通用工具

@@ -1,7 +1,17 @@
 import redis
 from redis.exceptions import ConnectionError, TimeoutError
+from functools import wraps
 
+def singleton(cls):
+    instances = {}
+    @wraps(cls)
+    def get_instance(*args, **kwargs):
+        if cls not in instances:
+            instances[cls] = cls(*args, **kwargs)
+        return instances[cls]
+    return get_instance
 
+@singleton
 class RedisClient:
     def __init__(self, host='redis.air', port=6379, password=None, db=0, max_connections=10):
         self.connection = None
@@ -44,7 +54,7 @@ class RedisClient:
 
     def get(self, key):
         self.reconnect_if_needed()
-        return self.connection.get(key)
+        return self.connection.get(key).decode('utf-8')
 
     def set(self, key, value):
         self.reconnect_if_needed()

@@ -8,8 +8,5 @@ def read_pdf(file_path: str):
         for page_num in range(len(pdf_reader.pages)):
             page = pdf_reader.pages[page_num]
             text += page.extract_text()
-
-    # 处理text中的换行符
-    text = text.replace("\n", " ").replace("\r", " ")
-    
+            
     return text

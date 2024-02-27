@@ -42,8 +42,10 @@ docker run -d -it -p 3306:3306 \
 
 ## 启动服务
 ```shell
-# 启动服务
-python web_start.py
+# 启动平台
+python talk2docs.py
 # 启动前端
 cd frontend && npm start
 ```
+
+## 容器化

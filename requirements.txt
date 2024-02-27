@@ -22,3 +22,4 @@ zhipuai
 
 # 通用工具
 cryptography
+PyPDF2

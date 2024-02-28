@@ -1,4 +1,5 @@
 import {error} from '@/components/Notification';
+import {Base64ToString} from "@/utils/CryptoUtils";
 
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
@@ -56,7 +57,7 @@ export async function SSE(url: string | URL, params: ChatMessageRequestProps, ca
       return;
     }
 
-    callback(event.data);
+    callback(Base64ToString(event.data));
   }
 
   eventSource.onerror = (event: any) => {

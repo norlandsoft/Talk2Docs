@@ -84,7 +84,7 @@ const ChatInput: React.FC<ChatInputProps> = (props: ChatInputProps) => {
         <div className={`chat-input-submit ${finished ? '' : 'chat-input-disabled'}`}
           onClick={finished ? handleSendMessage : () => {
           }}>
-          <Icon name={finished ? 'send' : 'loading'} size={24} />
+          <Icon name={finished ? 'send' : 'Stop'} size={24} />
         </div>
       </div>
     </div>

@@ -50,8 +50,7 @@ const ChatInput: React.FC<ChatInputProps> = (props: ChatInputProps) => {
   }
 
   return (
-    <div style={{ marginTop: '4px' }}>
-      <div className={'chat-input-wrapper'} style={{ width }}>
+    <div className={'chat-input-wrapper'} style={{ width }}>
         <textarea
           ref={textareaRef}
           value={value}
@@ -87,7 +86,6 @@ const ChatInput: React.FC<ChatInputProps> = (props: ChatInputProps) => {
           <Icon name={finished ? 'send' : 'Stop'} size={24} />
         </div>
       </div>
-    </div>
   );
 }
 

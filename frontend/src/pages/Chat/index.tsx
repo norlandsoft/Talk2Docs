@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "umi";
 import { FloatButton } from 'antd';
-import { DownOutlined, FileDoneOutlined, SettingOutlined } from '@ant-design/icons';
+import { FileDoneOutlined, PaperClipOutlined, SettingOutlined } from '@ant-design/icons';
 import Icon from "@/components/Icons";
 import WorkPage from "./WorkPage";
 import styles from './index.less';
@@ -46,12 +46,15 @@ const Chat: React.FC = (props: any) => {
       <div className={styles.work} style={{ height: frameSize.height, width: frameSize.width - taskWidth }}>
         <WorkPage height={frameSize.height} width={frameSize.width - taskWidth} />
       </div>
-      <FloatButton.Group shape="square" style={{ bottom: '180px' }}>
+      <FloatButton.Group shape="square" style={{ bottom: '220px' }}>
         <FloatButton
           icon={<SettingOutlined />}
         />
         <FloatButton
           icon={<FileDoneOutlined />}
+        />
+        <FloatButton
+          icon={<PaperClipOutlined />}
         />
       </FloatButton.Group>
     </div>

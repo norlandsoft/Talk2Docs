@@ -89,7 +89,7 @@ const WorkPage: React.FC<WorkPageProps> = (props: WorkPageProps) => {
   return (
     <div className={styles.container} style={{ width, height }}>
       <ChatView
-        height={frameSize.height - inputHeight - 85}
+        height={frameSize.height - inputHeight - 50}
         width={langWidth}
         chatList={chatList}
         lastResponse={lastContent}

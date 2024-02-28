@@ -42,9 +42,8 @@ export function isJSON(str: string) {
   }
 }
 
-export async function SSE(url: string | URL, params: ChatMessageRequestProps, callback: any) {
-  const {taskId, chatId} = params;
-  const eventSource = new EventSource(url + '?task=' + taskId + '&chat=' + chatId);
+export async function SSE(url: string | URL, callback: any) {
+  const eventSource = new EventSource(url);
 
   eventSource.onmessage = (event: any) => {
     if (event.data === '<OPEN>') {

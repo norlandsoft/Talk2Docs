@@ -1,0 +1,62 @@
+.chat-input-wrapper {
+  position: relative;
+  padding: 12px 3px 8px 12px;
+  width: 600px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  z-index: 100;
+  user-select: none;
+  overflow: hidden;
+  background: #fafafa;
+
+  .chat-input {
+    width: calc(100% - 50px);
+    resize: none;
+    border: none;
+    font-family: IBMPlexMono, Monaco, Consolas, 'Courier New', Courier, monospace;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-right: 50px;
+    background: #fafafa;
+    &:focus {
+      outline: none;
+    }
+
+    //  滚动条样式设置
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .chat-input-submit {
+    position: absolute;
+    float: right;
+    right: 10px;
+    bottom: 5px;
+
+    padding: 8px;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover {
+      background: #eee;
+    }
+  }
+
+  .chat-input-disabled {
+    opacity: 0.3; /* 降低透明度，模拟不可用状态 */
+    background: transparent !important;
+    cursor: not-allowed;
+  }
+}

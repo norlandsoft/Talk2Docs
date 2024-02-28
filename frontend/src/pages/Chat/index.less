@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  flex-direction: row;
   height: 100%;
   overflow: hidden;
 
@@ -28,26 +29,32 @@
         transform: rotate(35deg);
       }
     }
-
-    .toggle {
-      display: flex;
-      align-items: center;
-      position: absolute;
-      overflow: hidden;
-      cursor: pointer;
-      user-select: none;
-      border: 1px solid #e8e8e8;
-      border-left: none;
-      border-radius: 0 3px 3px 0;
-      padding: 8px 0;
-
-      &:hover {
-        background-color: #e1e2e3;
-      }
-    }
   }
 
   .work {
     display: flex;
+  }
+
+  .toggle {
+    position: absolute;
+    background-color: #f1f2f3;
+    border: 1px solid #e8e8e8;
+    border-left: none;
+    border-radius: 0 3px 3px 0;
+
+    .toggleInner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 14px;
+      height: 50px;
+      cursor: pointer;
+      transition-delay: 0.5s;
+    }
+
+    &:hover {
+      background-color: #ddd;
+    }
   }
 }

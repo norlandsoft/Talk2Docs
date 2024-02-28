@@ -1,36 +1,32 @@
-import React from "react";
+import path from 'path';
 
-import add from './svg/Add';
-import chat from './svg/Chat';
-import close from './svg/Close';
-import dialog from './svg/Dialog';
-import document from './svg/Document';
-import document_add from './svg/DocumentAdd';
-import flash from './svg/Flash';
-import knowledge from './svg/Knowledge';
-import more from './svg/More';
-import send from './svg/Send';
-import setting from './svg/Setting';
-import talker from './svg/Talker';
-import toggle_open from './svg/Toggle-Open';
-import toggle_close from './svg/Toggle-Close';
+// 扩展 require 类型，以便在 TypeScript 中使用 require.context
+declare global {
+  interface NodeRequire {
+    context: (
+      directory: string,
+      useSubdirectories?: boolean,
+      regExp?: RegExp
+    ) => {
+      (key: string): any;
+      keys(): string[];
+    };
+  }
+}
+
+// 获取当前目录下所有文件
+const req = require.context('./svg', false, /\.tsx$/);
+
 // 图标组件对象
-const iconComponents: { [key: string]: React.ElementType } = {
-  add,
-  chat,
-  close,
-  dialog,
-  document,
-  document_add,
-  flash,
-  knowledge,
-  more,
-  send,
-  setting,
-  talker,
-  toggle_close,
-  toggle_open
-};
+const iconComponents = {};
+
+// 遍历每个文件
+req.keys().forEach(key => {
+  // 获取文件名作为 key，去除扩展名和路径
+  const iconName = path.basename(key, '.tsx');
+  // 导入组件并添加到 iconComponents 对象
+  iconComponents[iconName.toLowerCase()] = req(key).default;
+});
 
 const Icons = ({name, size = 24, color = '#1C274C', thickness = 1.5}: IconProps) => {
   // 根据传入的名称动态选择对应的图标组件

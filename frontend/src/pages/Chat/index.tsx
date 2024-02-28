@@ -35,16 +35,18 @@ const Chat: React.FC = (props: any) => {
         <div style={{ height: frameSize.height - 50 }}>
           <ChatHistory />
         </div>
-        <div className={styles.toggle} style={{ top: frameSize.height / 2, left: collapsed ? 0 : taskWidth }} onClick={handleToggleSidebar}>
+      </div>
+      <div className={styles.toggle} style={{ top: frameSize.height / 2, left: collapsed ? 0 : taskWidth }} onClick={handleToggleSidebar}>
+        <div className={styles.toggleInner}>
           {
-            collapsed ? <Icon name='toggle_open' size={12} thickness={3} /> : <Icon name='toggle_close' size={12} thickness={3} />
+            collapsed ? <Icon name='toggle-open' size={12} thickness={3} /> : <Icon name='toggle-close' size={12} thickness={3} />
           }
         </div>
       </div>
       <div className={styles.work} style={{ height: frameSize.height, width: frameSize.width - taskWidth }}>
         <WorkPage height={frameSize.height} width={frameSize.width - taskWidth} />
       </div>
-      <FloatButton.Group shape="square" style={{ bottom: '120px'}}>
+      <FloatButton.Group shape="square" style={{ bottom: '180px' }}>
         <FloatButton
           icon={<SettingOutlined />}
         />
@@ -52,12 +54,6 @@ const Chat: React.FC = (props: any) => {
           icon={<FileDoneOutlined />}
         />
       </FloatButton.Group>
-
-      {
-        collapsed && <FloatButton
-          icon={<DownOutlined />}
-        />
-      }
     </div>
   );
 }

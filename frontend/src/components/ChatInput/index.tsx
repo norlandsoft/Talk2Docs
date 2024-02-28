@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Icon from '@/components/Icons';
 import './index.less';
 
@@ -50,41 +50,41 @@ const ChatInput: React.FC<ChatInputProps> = (props: ChatInputProps) => {
   }
 
   return (
-    <div style={{marginTop: '4px'}}>
-      <div className={'chat-input-wrapper'} style={{width}}>
-      <textarea
-        ref={textareaRef}
-        value={value}
-        onChange={handleTextareaChange}
-        onCompositionStart={() => {
-          setShowIME(true)
-        }}
-        onCompositionEnd={() => {
-          setShowIME(false)
-        }}
-        // 回车发送
-        onKeyDown={(event) => {
-          if (event.key === 'Enter') {
-            if (showIME) {
-              setShowIME(false);
-              return;
+    <div style={{ marginTop: '4px' }}>
+      <div className={'chat-input-wrapper'} style={{ width }}>
+        <textarea
+          ref={textareaRef}
+          value={value}
+          onChange={handleTextareaChange}
+          onCompositionStart={() => {
+            setShowIME(true)
+          }}
+          onCompositionEnd={() => {
+            setShowIME(false)
+          }}
+          // 回车发送
+          onKeyDown={(event) => {
+            if (event.key === 'Enter') {
+              if (showIME) {
+                setShowIME(false);
+                return;
+              }
+              if (event.ctrlKey || event.metaKey) {
+                setValue(value + '\n');
+                return;
+              }
+              event.preventDefault();
+              handleSendMessage();
             }
-            if (event.ctrlKey || event.metaKey) {
-              setValue(value + '\n');
-              return;
-            }
-            event.preventDefault();
-            handleSendMessage();
-          }
-        }}
-        className={'chat-input'}
-        placeholder={'请输入问题...'}
-        rows={1}
-      />
+          }}
+          className={'chat-input'}
+          placeholder={'请输入问题...'}
+          rows={1}
+        />
         <div className={`chat-input-submit ${finished ? '' : 'chat-input-disabled'}`}
-             onClick={finished ? handleSendMessage : () => {
-             }}>
-          <Icon name={finished ? 'send' : 'loading'} size={24}/>
+          onClick={finished ? handleSendMessage : () => {
+          }}>
+          <Icon name={finished ? 'send' : 'loading'} size={24} />
         </div>
       </div>
     </div>

@@ -16,9 +16,9 @@ const ChatHistory: React.FC = (props: any) => {
         <Icons name='add' size={20} color='#fff' /> 新建任务
       </div>
 
-      <div className={styles.menu} style={{ height: frameSize.height - 138 }}>
+      <div className={styles.menu} style={{ height: frameSize.height - 98 }}>
         {
-          [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
+          [1, 2].map((item, index) => (
             <div key={index} className={styles.item}>
               <span>任务描述</span>
             </div>

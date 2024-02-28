@@ -21,6 +21,7 @@ async def completions(chat: ChatMessage):
 
 @app.get("/rest/v1/chat/fetch")
 async def fetch_message(task: str, chat: str):
+    # 返回客户端内容为SSE流，即服务器推送事件
     return StreamingResponse(Completion.llm_chat(task, chat), media_type="text/event-stream")
 
 if __name__ == "__main__":

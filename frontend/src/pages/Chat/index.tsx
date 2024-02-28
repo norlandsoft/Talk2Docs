@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "umi";
 import { FloatButton } from 'antd';
+import { DownOutlined, FileDoneOutlined, SettingOutlined } from '@ant-design/icons';
 import Icon from "@/components/Icons";
 import WorkPage from "./WorkPage";
 import styles from './index.less';
@@ -26,43 +27,42 @@ const Chat: React.FC = (props: any) => {
   }
 
   return (
-    <div className={styles.container} style={{height: frameSize.height, width: frameSize.width}}>
-      <div className={styles.task} style={{width: taskWidth}}>
-        <div className={styles.title}>Talk2Documents</div>
-        <div style={{height: frameSize.height - 90}}>
+    <div className={styles.container} style={{ height: frameSize.height, width: frameSize.width }}>
+      <div className={styles.task} style={{ width: taskWidth }}>
+        <div className={styles.title}>
+          Talk<span>2</span>Documents
+        </div>
+        <div style={{ height: frameSize.height - 50 }}>
           <ChatHistory />
         </div>
-        <div className={styles.foot}>
-          <div className={styles.options}>
-            <div style={{display: 'flex'}}>
-              <Icon name='setting' size={20}/>
-            </div>
-            <div style={{display: 'flex'}}>
-              <Icon name='knowledge' size={18}/>
-            </div>
-          </div>
-          <div className={styles.toggle} onClick={handleToggleSidebar}>
-            <Icon name='toggle_close' size={14} color='#1C274C'/>
-          </div>
+        <div className={styles.toggle} style={{ top: frameSize.height / 2, left: collapsed ? 0 : taskWidth }} onClick={handleToggleSidebar}>
+          {
+            collapsed ? <Icon name='toggle_open' size={12} thickness={3} /> : <Icon name='toggle_close' size={12} thickness={3} />
+          }
         </div>
       </div>
-      <div className={styles.work} style={{height: frameSize.height, width: frameSize.width - taskWidth}}>
-        <WorkPage height={frameSize.height} width={frameSize.width - taskWidth}/>
+      <div className={styles.work} style={{ height: frameSize.height, width: frameSize.width - taskWidth }}>
+        <WorkPage height={frameSize.height} width={frameSize.width - taskWidth} />
       </div>
+      <FloatButton.Group shape="square" style={{ bottom: '120px'}}>
+        <FloatButton
+          icon={<SettingOutlined />}
+        />
+        <FloatButton
+          icon={<FileDoneOutlined />}
+        />
+      </FloatButton.Group>
+
       {
-        collapsed ? (
-          <FloatButton onClick={handleToggleSidebar}
-            shape="square"
-            icon={<Icon name='toggle_open' size={14} color='#1C274C'/>}
-            style={{position: 'fixed', bottom: 0, left: 0, boxShadow: 'none'}}
-          />
-        ) : null
+        collapsed && <FloatButton
+          icon={<DownOutlined />}
+        />
       }
     </div>
   );
 }
 
-export default connect(({global}) => ({
+export default connect(({ global }) => ({
   collapsed: global.collapsed,
   frameSize: global.frameSize,
 }))(Chat);

@@ -1,11 +1,8 @@
 const ToggleClose = (props: IconProps) => (
-  <svg width={props.size} height={props.size} fill="#000000" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
-    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+  <svg width={props.size} height={props.size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g id="SVGRepo_iconCarrier">
-      <g fillRule="evenodd">
-        <path d="M0 176.142 176.13.012l960.12 960.119L176.13 1920 0 1743.87l783.864-783.739L0 176.142Z"></path> <path d="M784 176.142 960.13.012l960.12 960.119L960.13 1920 784 1743.87l783.86-783.739L784 176.142Z"></path>
-      </g>
+      <path d="M9 5L14.15 10C14.4237 10.2563 14.6419 10.5659 14.791 10.9099C14.9402 11.2539 15.0171 11.625 15.0171 12C15.0171 12.375 14.9402 12.7458 14.791 13.0898C14.6419 13.4339 14.4237 13.7437 14.15 14L9 19" stroke="#000000" strokeWidth={props.thickness} strokeLinecap="round" strokeLinejoin="round">
+      </path>
     </g>
   </svg>
 )

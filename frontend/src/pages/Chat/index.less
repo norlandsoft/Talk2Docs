@@ -15,30 +15,34 @@
       justify-content: center;
       height: 50px;
       font-family:'Courier New', Courier, monospace;
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 600;
-      text-shadow: 0 0 1px #79c1e4;
+      letter-spacing: 0.5px;
+      text-shadow: 0 0 1px #1c555f;
       user-select: none;
+
+      span {
+        margin: 0 5px;
+        font-size: 32px;
+        color: #1c555f;
+        transform: rotate(35deg);
+      }
     }
 
-    .foot {
+    .toggle {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      height: 40px;
-      padding: 0 16px;
-      border-top: 1px solid #e8e8e8;
+      position: absolute;
+      overflow: hidden;
+      cursor: pointer;
+      user-select: none;
+      border: 1px solid #e8e8e8;
+      border-left: none;
+      border-radius: 0 3px 3px 0;
+      padding: 8px 0;
 
-      .options {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .toggle {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
+      &:hover {
+        background-color: #e1e2e3;
       }
     }
   }

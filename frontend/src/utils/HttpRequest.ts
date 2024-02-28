@@ -46,7 +46,6 @@ export async function SSE(url: string | URL, params: ChatMessageRequestProps, ca
   const eventSource = new EventSource(url + '?task=' + taskId + '&chat=' + chatId);
 
   eventSource.onmessage = (event: any) => {
-    console.log(event);
     if (event.data === '<OPEN>') {
       return;
     }

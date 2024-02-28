@@ -11,7 +11,7 @@ from server.llm.ChatZhipuAI import ChatZhipuAI
 env = dotenv_values(".env")
 
 # 提问模版
-prompt2 = ChatPromptTemplate.from_messages(
+prompt = ChatPromptTemplate.from_messages(
     [("system", "你是世界级的技术文档作者。"), ("user", "{input}")]
 )
 
@@ -32,8 +32,9 @@ async def llm_chat(task: str, chat: str):
     content = RedisClient().get(chat)
     
     output_parser = StrOutputParser()
-    chain = prompt2 | llm | output_parser
+    chain = prompt | llm | output_parser
 
     for chunk in chain.stream({"input": content}):
-        yield f"{chunk}"
+        event_data = f"data: {chunk}\n\n"
+        yield event_data.encode('utf-8')
         await asyncio.sleep(0)

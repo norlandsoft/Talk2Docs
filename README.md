@@ -49,3 +49,11 @@ cd frontend && npm start
 ```
 
 ## 容器化
+```shell
+# build
+cd frontend
+docker build -t talk:1.0.0 .
+
+# RUN(host中 talk.air 为宿主机地址)
+docker run -p 8000:8000 -d talk:1.0.0
+```

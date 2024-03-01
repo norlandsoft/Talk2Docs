@@ -40,7 +40,7 @@ export default {
 
     * fetchChatResponse({ payload, callback }, _: any) {
       const { taskId, chatId } = payload;
-      yield SSE(`/rest/v1/chat/fetch?task=${taskId}&chat=${chatId}`, callback);
+      yield SSE(`/sse/v1/chat/fetch?task=${taskId}&chat=${chatId}`, callback);
     },
 
     * copyLastResponse({ payload, callback }: any, { put }: any) {

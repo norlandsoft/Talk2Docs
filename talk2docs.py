@@ -4,7 +4,6 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from starlette.responses import StreamingResponse
 from server import ChatService, Completion
-from server.db.RedisClient import RedisClient
 
 app = FastAPI()
 
@@ -19,7 +18,7 @@ async def completions(chat: ChatMessage):
     return {"success": success, "data": chatId}
 
 
-@app.get("/rest/v1/chat/fetch")
+@app.get("/sse/v1/chat/fetch")
 async def fetch_message(task: str, chat: str):
     # 返回客户端内容为SSE流，即服务器推送事件
     return StreamingResponse(Completion.llm_chat(task, chat), media_type="text/event-stream")

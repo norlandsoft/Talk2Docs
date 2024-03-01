@@ -22,6 +22,17 @@ export default defineConfig({
       changeOrigin: true,
       pathRewrite: {"^": ""}
     },
+    "/sse": {
+      target: "http://localhost:8080",
+      changeOrigin: true,
+      pathRewrite: {"^": ""},
+      // 'onProxyReq': function(proxyReq, req, res) {
+      //   proxyReq.setHeader('connection', 'keep-alive');
+      // },
+      'onProxyRes': function(proxyRes, req, res) {
+        proxyRes.headers['Content-Encoding'] = 'chunked';
+      },
+    }
   },
   base: "/",
   outputPath: "dist",

@@ -2,7 +2,7 @@ import {defineConfig} from "umi";
 
 export default defineConfig({
   dva: {},
-  title: 'AI-Platform',
+  title: 'Talk-2-Documents',
   links: [
     {id: 'theme', rel: 'stylesheet', type: 'text/css'},
     {rel: 'shortcut icon', href: '/favicon.svg'}

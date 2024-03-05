@@ -3,6 +3,7 @@ from pymysql.cursors import DictCursor
 from pymysql.err import OperationalError
 from dbutils.pooled_db import PooledDB
 
+
 # MySQLClient类用于与MySQL数据库进行交互
 class MySQLClient:
     def __init__(self, host, port, user, password, db, pool_size=5):
@@ -71,6 +72,7 @@ class MySQLClient:
 
     def execute_delete(self, query, params=None):
         return self.execute_update(query, params)
+
 
 # 示例用法
 if __name__ == "__main__":

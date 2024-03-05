@@ -27,7 +27,7 @@ llm = ChatZhipuAI(
 )
 
 
-def save_content(content: str) -> str:
+def save_content(content: str) -> tuple[bool, str]:
     # 生成一个随机UUID
     chatId = str(uuid.uuid4())
     # 保存对话内容到Redis

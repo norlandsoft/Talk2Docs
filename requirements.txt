@@ -6,13 +6,13 @@ bs4
 beautifulsoup4
 flask
 pydantic
-kafka_python
 redis
 python-dotenv
 
 # db
 DBUtils
 pymysql
+pymilvus
 
 # llm api
 langchain

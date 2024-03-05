@@ -9,6 +9,7 @@ pydantic
 kafka_python
 redis
 python-dotenv
+python-multipart
 
 # db
 DBUtils

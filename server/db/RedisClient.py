@@ -13,7 +13,7 @@ def singleton(cls):
 
 @singleton
 class RedisClient:
-    def __init__(self, host='redis.air', port=6379, password=None, db=0, max_connections=10):
+    def __init__(self, host='106.14.245.217', port=6379, password='123456aA', db=0, max_connections=10):
         self.connection = None
         self.connection_timeout = 5  # 连接超时时间
         self.socket_timeout = 5  # 命令超时时间
